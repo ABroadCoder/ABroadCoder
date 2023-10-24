@@ -1,0 +1,14 @@
+//1.
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+//2.
+const BMIMark = massMark / (heightMark * heightMark);
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+//3.
+console.log(BMIMark, BMIJohn);
+//4.
+var markHigherBMI = BMIMark > BMIJohn;
+console.log(markHigherBMI);
+
