@@ -1,3 +1,5 @@
+
+
 const country = "The United States of America";
 const continent = "North America";
 let population = 330;
@@ -47,7 +49,7 @@ console.log(description);
 // 1. 
 description = `${country} is in ${continent}, and its ${population} people speak ${language}.`
 console.log(description);
-*/
+
 
 // Taking Decisions: if/else Statements
 //1. 
@@ -60,4 +62,22 @@ else {
 
 //2.
 // done above through changing variable value and observing results
+
+//Type Conversion and Coercion
+//1.
+// 4
+// 617
+// 23
+// false
+// 117
+
+// 2.
+console.log('9' - '5');
+console.log('19' - '13' + '17');
+console.log('19' - '13' + 17);
+console.log('123' < 57);
+console.log(5 + 6 + '4' + 9 - 4 - 2);
+*/
+
+
 
