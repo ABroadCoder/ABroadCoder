@@ -3,6 +3,8 @@
 const country = "The United States of America";
 const continent = "North America";
 let population = 330;
+const language = "English";
+const isIsland = false;
 
 console.log(country);
 console.log(continent);
@@ -77,7 +79,53 @@ console.log('19' - '13' + '17');
 console.log('19' - '13' + 17);
 console.log('123' < 57);
 console.log(5 + 6 + '4' + 9 - 4 - 2);
+
+
+//Equality Operators: == vs. ===
+
+//1.
+const numNeighbours = Number(prompt('How many neighbor countries does your country have?'));
+
+//2. - 5.
+if (numNeighbours === 1) {
+    console.log('Only 1 border!')
+} else if (numNeighbours > 1) {
+    console.log('More than 1 border')
+} else {
+    console.log('No borders')
+};
+
+
+// Logical Operators
+//1.-3.
+if (language === "English" && population < 50 && isIsland === false) {
+    console.log(`You should live in ${country} 😎.`)
+} else {
+    console.log(`${country} does not meet your criteria 🥲.`)
+};
+
 */
 
-
+//The switch Statement
+//1.
+switch (language) {
+    case "Chinese" || "Mandarin":
+        console.log("MOST number of native speakers!");
+        break;
+    case "Spanish":
+        console.log("2nd place in number of native speakers");
+        break;
+    case "English":
+        console.log("3rd place");
+        break;
+    case "Hindi":
+        console.log("Number 4");
+        break;
+    case "Arabic":
+        console.log("5th most spoken language");
+        break;
+    default:
+        console.log("Great language too :D");
+        break;
+}
 
