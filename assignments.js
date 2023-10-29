@@ -1,5 +1,3 @@
-
-
 const country = "The United States of America";
 const continent = "North America";
 let population = 330;
@@ -104,7 +102,6 @@ if (language === "English" && population < 50 && isIsland === false) {
     console.log(`${country} does not meet your criteria 🥲.`)
 };
 
-*/
 
 //The switch Statement
 //1.
@@ -131,3 +128,9 @@ switch (language) {
 
 //Assignment not present for theoretical lectures
 
+*/
+
+//The Conditional (Ternary) Operator
+//1. 
+const aboveBelowAverage = population > 33 ? "above" : "below";
+console.log(`${country}'s population is ${aboveBelowAverage} average.`);
