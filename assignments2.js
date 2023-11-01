@@ -15,8 +15,6 @@ const descRussia = describeCountry("Russia", 126, "Москва");
 
 console.log(descSaudi, descIceland, descRussia);
 
-*/
-
 //Function Declarations vs. Expressions
 //1.
 function percentageOfWorld1(population) {
@@ -41,3 +39,15 @@ const percentageOfWorld2 = function (population) {
 console.log(percentageOfWorld2(1441), percentageOfWorld2(330), percentageOfWorld2(65));
 
 // function expression allows for all cases to be referenced under a single variable name
+
+*/
+
+// Arrow functions
+//1.
+const percentageOfWorld3 = population => 100* population / 7900;
+
+const percChina3 = percentageOfWorld3(1441);
+const percUS3 = percentageOfWorld3(330);
+const percFrance3 = percentageOfWorld3(65);
+
+console.log(percChina3, percFrance3, percUS3);
