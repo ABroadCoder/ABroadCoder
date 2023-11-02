@@ -1,0 +1,19 @@
+const calcAverage = score1, score2, score3 => (score3 + score2 + score1) / 3;
+
+const scoreDolphins = calcAverage(score1, score2, score3);
+const scoreKoalas = calcAverage(score1, score2, score3);
+
+function checkWinner(avgDolphins, avgKoalas) {
+    if (avgDolphins > avgKoalas) {
+        console.log(`Dolphins win ${avgDolphins} vs. ${avgKoalas}`)
+    } else if {
+        console.log(`Koalas win ${avgKoalas} vs. ${avgDolphins}`)
+    } else {
+        console.log(`No team wins.`);
+    }
+    }
+};
+
+function checkWinner(avgDolphins, avgKoalas) {
+    console.log()
+}
