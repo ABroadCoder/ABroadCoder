@@ -1,7 +1,5 @@
 "use strict";
 
-/*
-
 //Functions
 //1. 
 function describeCountry(country, population, capitalCity) {
@@ -40,14 +38,66 @@ console.log(percentageOfWorld2(1441), percentageOfWorld2(330), percentageOfWorld
 
 // function expression allows for all cases to be referenced under a single variable name
 
-*/
-
 // Arrow functions
 //1.
-const percentageOfWorld3 = population => 100* population / 7900;
+const percentageOfWorld3 = population => 100 * population / 7900;
 
 const percChina3 = percentageOfWorld3(1441);
 const percUS3 = percentageOfWorld3(330);
 const percFrance3 = percentageOfWorld3(65);
 
 console.log(percChina3, percFrance3, percUS3);
+
+
+
+//Functions Calling Other Functions
+//1.
+function describePopulation(country, population) {
+    return `${country} has ${population} million people, which is about ${percentageOfWorld1(population)} percent of the world.`
+}
+const newChina = describePopulation('China', 1430);
+const newUS = describePopulation('USA', 330);
+const newFrance = describePopulation('France', 65);
+
+console.log(newChina, newUS, newFrance);
+
+//Introduction to Arrays
+//1.
+const populations = [1440, 330, 160, 65];
+//2.
+console.log(populations.length === 4);
+//3.
+const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[populations.length - 1])];
+console.log(percentages);
+
+//Basic Array Operations (Methods)
+//1.
+const neighbors = ['Mexico', 'Canada', 'Russia'];
+console.log(neighbors);
+
+//2. 
+neighbors.push('Utopia');
+console.log(neighbors);
+
+//3.
+neighbors.pop();
+console.log(neighbors);
+
+//4.
+if (neighbors.includes('Germany') === false) {
+    console.log('Probably not a Central European country :D')
+};
+console.log(neighbors);
+
+//5.
+neighbors[2] = 'Russian Federation';
+console.log(neighbors);
+
+//6.
+neighbors.shift();
+console.log(neighbors);
+
+//7.
+neighbors.unshift('Mexico');
+console.log(neighbors);
+
