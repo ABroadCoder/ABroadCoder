@@ -101,3 +101,22 @@ console.log(neighbors);
 neighbors.unshift('Mexico');
 console.log(neighbors);
 
+//Introduction to Objects
+// 1.
+const myCountry = {
+    country: 'The United States of America',
+    capital: 'Washington, DC',
+    language: 'English',
+    population: 330,
+    neighbors: ['Canada', 'Mexico']
+};
+
+// Dot vs. Bracket Notation
+// 1. 
+console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighboring countries, and a capital called ${myCountry.capital}.`);
+
+// 2.
+myCountry.population += 2;
+console.log(myCountry.population);
+myCountry['population'] -= 2;
+console.log(myCountry.population);
