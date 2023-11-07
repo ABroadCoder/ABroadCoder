@@ -1,0 +1,14 @@
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function() {
+        this.BMI = this.mass / (this.height * this.height);
+        return this.BMI;
+    }
+};
+
+mark.calcBMI();
+john.calcBMI();
+
+console.log(`${john.fullName}'s BMI (${john.BMI}) is ${john.BMI > mark.BMI ? 'greater' : 'less'} than ${mark.fullName}'s (${mark.BMI})!`);
