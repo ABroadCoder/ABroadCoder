@@ -1,5 +1,7 @@
 "use strict";
 
+/*
+
 //Functions
 //1. 
 function describeCountry(country, population, capitalCity) {
@@ -120,3 +122,50 @@ myCountry.population += 2;
 console.log(myCountry.population);
 myCountry['population'] -= 2;
 console.log(myCountry.population);
+
+// Object Methods
+// 1. , 3.
+
+const myCountry = {
+    country: 'The United States of America',
+    capital: 'Washington, DC',
+    language: 'English',
+    population: 330,
+    neighbors: ['Canada', 'Mexico'],
+    describe: function () {
+        console.log(`${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbors.length} neighboring countries, and a capital called ${this.capital}.`);
+    },
+    checkIsland: function () {
+        this.isIsland = this.neighbors.length === 0 ? true : false;
+    }
+};
+
+// 2.
+
+console.log(myCountry.describe());
+
+// Iteration: The for Loop
+// 1.
+for (let voterNumber = 1; voterNumber <= 50; voterNumber++) {
+    console.log(`Voter number ${voterNumber} is currently voting.`)
+};
+
+*/
+
+// Looping Arrays, Breaking and Continuing
+// 1.
+const populations = [1440, 330, 160, 65];
+// 2.
+function percentageOfWorld1(population) {
+    return 100 * population / 7900;
+}
+
+const percentages2 = [];
+
+for (let i = 0; i < populations.length; i++) {
+    percentages2.push(percentageOfWorld1(populations[i]));
+};
+// 3.
+console.log(percentages2);
+
+
