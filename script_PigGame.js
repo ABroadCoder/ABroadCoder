@@ -1,5 +1,6 @@
 'use strict';
 
+
 // Selecting elements and defining global variables
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
