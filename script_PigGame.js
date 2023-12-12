@@ -12,17 +12,29 @@ const buttonNew = document.querySelector('.btn--new');
 const buttonRoll = document.querySelector('.btn--roll');
 const buttonHold = document.querySelector('.btn--hold');
 
-
+let scores, currentScore, activePlayer, playing;
 
 // Starting conditions
+const init = function () {
+
+    scores = [0, 0];
+    currentScore = 0;
+    playing = true;
+    activePlayer = 0;
+
     score0El.textContent = 0;
     score1El.textContent = 0;
+    current0El.textContent = 0;
+    current1El.textContent = 0;
+
     diceEl.classList.add('hidden');
-    
-    let scores = [0, 0];
-    let currentScore = 0;
-    let activePlayer = 0;
-    let playing = true;
+
+    player0El.classList.add('player--active');
+    player1El.classList.remove('player--active');
+    player0El.classList.remove('player--winner');
+    player1El.classList.remove('player--winner');
+};
+init();
 
 // function to refactor code and avoid repetition...DRY code 😊
 const switchPlayer = function() {
@@ -69,6 +81,7 @@ buttonHold.addEventListener('click', function() {
     // 3. check whether total score is at least 20
     if (scores[activePlayer] >= 20) {
         playing = false;
+        document.getElementById(`name--${activePlayer}`).textContent = `PLAYER ${activePlayer + 1} 👑`;
         document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
         document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
         currentScore = 0;
@@ -82,24 +95,8 @@ buttonHold.addEventListener('click', function() {
 })
 
 // New Game button functionality
-buttonNew.addEventListener('click', function() {
-    let playing = true;
-    let activePlayer = 0;
-    scores[0] = 0;
-    scores[1] = 0;
-    let currentScore = 0;
-    
-    score0El.textContent = 0;
-    score1El.textContent = 0;
-    current0El.textContent = 0;
-    current1El.textContent = 0;
-
-    diceEl.classList.add('hidden');
-    
-    player0El.classList.add('player--active');
-    player1El.classList.remove('player--active');
-    player0El.classList.remove('player--winner');
-    player1El.classList.remove('player--winner');
-    
+buttonNew.addEventListener('click', function () {
+    document.getElementById(`name--${activePlayer}`).textContent = `PLAYER ${activePlayer + 1}`;
+    init();
 });
 
