@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Skateboarding Central
+        </title>
+    </head>
+    <body>
+        <h1>
+            Skateboarding Central: Your 1-stop Shop for Authentic Gear
+        </h1>
+        <p>
+            Why wait to shop at the mall when you've got everything you need for skate gear online? We've got the best selection of skateboards, wheels, trucks, and more. Plus, we've got the best prices on the web. Shop now and get free shipping on orders over $50.
+        </p>
+        <h1>
+            Check out our new line of grip tape
+        </h1>
+        <form>
+            <h2>
+                Grip tape: the best way to keep your feet on the board
+            </h2>
+            <a href="">
+
+            </a>
+            <p>
+                <img src="https://www.brailleskateboarding.com/cdn/shop/products/mob-griptape-2.jpg" alt="Mob Grip Tape" width="300" height="300">
+            </p>
+            <p> 
+                <input type="text" placeholder="What gear interests you?"
+            </p>
+            <p>
+                <button onclick="alert('Tight, yo. Check out ur inbox for our response, yo.')">Skate on!</button>
+            </p>
+        </form>
+    </body>
+</html>
