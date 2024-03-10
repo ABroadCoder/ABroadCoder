@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Medieval City of Paris</title>
+</head>
+<body>
+    <h1>Paris: A Medieval Wonder</h1>
+    <p>Paris is a city of wonder and beauty. It's a city that has been around for centuries and has seen many changes. But, it's medieval history is what makes it so special. The city is home to some of the most beautiful and well-preserved medieval architecture in the world. From the Notre Dame Cathedral to the Louvre, Paris is a city that is steeped in history and culture. It's a city that is worth exploring and getting to know. So, if you're planning a trip to Paris, make sure to take the time to explore the medieval side of the city. You won't be disappointed.</p>
+    
+    <img src="https://cdn.getyourguide.com/img/tour/0b23d621e860b155.jpeg/132.webp" alt="Paris" width="300" height="300">
+<p>
+    <a href="https://en.wikipedia.org/wiki/Paris">Read more about Paris here.</a>
+</p>
+
+<form>
+    <input type="text" placeholder="Sign up for updates">
+    <p>
+    <button id="signup-button" onclick="alert('Signup complete. Thank you for signing up.')" >Sign up</button>
+</p>
+</form>
+</body>
+</html>
+
