@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Blow Glass</title>
+</head>
+<body>
+    <h1>How to Blow Glass</h1>
+    <p>
+        Glass blowing is a delicate art that requires patience and skill. It's a process that has been around for centuries and is still practiced today. In this article, we'll take a look at the steps involved in blowing glass and how you can get started with this beautiful art form.
+    </p>
+    <img src="https://i.etsystatic.com/7886489/r/il/073e00/5805107189/il_1588xN.5805107189_6h0r.jpg" alt="Glass blowing" width="300" height="300">
+<p>
+    <a href="https://www.wikihow.com/Blow-Glass">Read more about glass blowing here.</a>
+</p>
+    <form>
+        <h2>Find out more by signing up for updates.</h2>
+<p>
+    Enter your topic of interest so that we can contact you with tailored information.
+
+</p>        <input type="text" placeholder="What glassblowing topic do you need to learn about?">
+        <p> 
+        <button id="OK-button" onclick="alert('Topic noted!')">OK</button>
+    </p>
+    </form>
+</body>
+</html>
+
