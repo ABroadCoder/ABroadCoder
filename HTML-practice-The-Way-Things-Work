@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>The Way Things Work</title>
+</head>
+<body>
+    <h1>A Great Illustrative Volume</h1>
+    <p>
+        The Way Things Work, by MacCaulay, is one of the best illustrated volumes ever published on the subject of the mechanics of everyday technology. It's a book that is worth reading and exploring.
+    </p>
+    <p>
+    <img src="https://m.media-amazon.com/images/I/81kV3cRZzwL._SY522_.jpg" alt="The Way Things Work" width="300" height="300">
+    </p>
+    <p> 
+        <a href="https://en.wikipedia.org/wiki/The_Way_Things_Work">Read more about the book here.</a>
+    </p>
+    
+    <p>
+    <form>
+
+    <input type="text" placeholder="Enter your email here">
+
+    <p>
+        <button id="info-button" onclick="alert('Information requested. Please check your inbox for our summary of this book.')">Request Information</button>
+    </p>
+
+</form>
+</body>
+
