@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Why the Alamo is Central to the Self-image of the State of Texas</title>
+            </head>
+    <body>
+<h1>
+    The Alamo: A Legacy of Texas
+</h1>
+<p>
+    The Alamo is a symbol of Texas's struggle for independence from Mexico. The battle of the Alamo was a turning point in the Texas Revolution, and the bravery of the defenders of the Alamo is a source of pride for Texans.
+</p>
+<h1>
+    A State's Brave Martyrs
+</h1>
+<p>
+    While not all agree with the idea that the Alamo represents a blemishless struggle for justice, all can understand that it plays a powerful role in the concept of Texas as a separate political entity at a time when it, the United States, and Mexico were all in a formative stage.
+</p>
+<form>
+    <h1>
+        Sign up for Alamo Historical Updates from the Texas Alamo Historical Society
+    </h1>
+    <p>
+        <a href="https://www.thealamo.org/">
+            The Texas Alamo Historical Society
+        </a>
+    
+    </p>
+    <p>
+        <img src="https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_avif,h_465,q_65,w_640/v1/crm/sanantoniotx/The-Alamo-Banner-The-Alamo-Legacy_62AF243D-5056-BFCE-A8BDD7E4010B8B2A-62af23a25056bfc_62af2839-5056-bfce-a8de63814c9da935.jpg" alt="The Alamo">
+    </p>
+    <p>
+        <input type="text" placeholder="Enter your email">
+    </p>
+    <p>
+        <button class="button" onclick="alert('You have signed up for Alamo Historical Updates from the Texas Alamo Historical Society. Check your inbox for the latest news.')">Sign up</button>
+    </p>
+</form>
+    </body>
+</html>
