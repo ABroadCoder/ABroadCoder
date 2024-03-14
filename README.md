@@ -1,5 +1,5 @@
 - 🖐 Hi! I’m @ABroadCoder.
-- 👾 I’m currently learning JavaScript.
+- 👾 I’m currently learning JavaScript, HTML, and CSS.
 - 🖼 My goal is to work as a JavaScript developer and create smart, fun applications.
 
 <!---
