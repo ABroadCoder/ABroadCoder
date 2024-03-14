@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Cooking for Iron Deficiency
+        </title>
+    </head>
+    <body>
+        <h1>
+            Cooking for Iron Deficiency
+        </h1>
+        <p>
+            Iron deficiency is a common problem, especially for women. Here are some recipes to help you get more iron in your diet.
+        </p>
+        <img src="https://health.wordpress.clevelandclinic.org/wp-content/uploads/sites/3/2019/10/redMeat-849360782-770x553.jpg">
+        <a href="https://health.clevelandclinic.org/is-red-meat-bad-for-your-heart-or-not"></a>
+<p>
+    <input type="text" placeholder="What's your favorite iron-rich food?">
+
+</p>
+
+<button onclick="alert('Thanks for sharing!')">Submit</button>
+    </body>
+</html>
