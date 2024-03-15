@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(153, 233, 165);
+    font-family: Arial;
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 35px;
+  }
+
+  .first {
+    color: red;
+  }
+
+  .second {
+    color: blue;
+  }
+
+#your-name{
+    color: rgb(234, 238, 9);
+    background-color: rgb(37, 166, 178);
+    border: 5px solid #444;
+    
+}
+
+
+
