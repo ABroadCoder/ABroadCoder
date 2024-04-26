@@ -234,8 +234,6 @@ const printBookInfo = function({title, author, year='year unknown'}) {
 };
 printBookInfo({title: 'Algorithms', author: ['Robert Sedgewick', 'Kevin Wayne'],});
 
-*/
-
 // The Spread Operator
 
 // 3.1
@@ -247,3 +245,62 @@ function spellWord(input) {
     console.log(...input);
 }
 spellWord('JavaScript');
+
+
+// 4.1
+const [mainKeyword, ...rest] = books[0].keywords;
+console.log(mainKeyword);
+console.log(rest);
+
+// 4.2
+const 
+{publisher: bookPublisher, ...restOfTheBook} = books[1];
+console.log(bookPublisher);
+console.log(restOfTheBook);
+
+// 4.3
+const printBookAuthorsCount = function(title, ...authors) {
+    console.log(`"The book "${title}" has ${authors.length} authors"`);
+};
+
+printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
+
+// Short-circuiting (&& and ||)
+// 5.1
+// if/else method
+const hasExamplesInJava = function(bookObject) {
+    if (bookObject.programmingLanguage === 'Java') {
+        console.log(true);
+    } else {
+        console.log('no data available');
+    }
+};
+
+hasExamplesInJava(books[1]);
+
+// ternary operator method
+const hasExamplesInJavaTernary = function(bookObject) {
+    bookObject.programmingLanguage === 'Java' ? console.log(true) : console.log('no data available');
+};
+
+hasExamplesInJavaTernary(books[1]);
+
+// logical operator short-circuiting method
+const hasExamplesInJavaShort = function(bookObject) {
+    console.log(bookObject.programmingLanguage || 'no data available');
+};
+
+hasExamplesInJavaShort(books[0]);
+
+// 5.2
+for (let i = 0; i < books.length; i++) {
+    console.log(books[i].onlineContent && `"${books[i].title}" provides online content`);
+};
+console.log(books.length);
+
+*/
+// The Nullish Coalescing Operator (??)
+// 6.1
+for (let i=0; i<books.length; i++) {
+    console.log(books[i].onlineContent ?? `${books[i].title} provides no data about its online content`);
+};
