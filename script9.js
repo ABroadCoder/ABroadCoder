@@ -24,6 +24,11 @@ const restaurant = {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}.`)
   },
 
+  orderPizza: function(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -52,7 +57,88 @@ restaurant.orderDelivery({
   address: 'Via del Sole, 21',
   mainIndex: 2,
   starterIndex: 2,
+
 });
+
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: keeps going through null and undefined, NOT through 0 or ''; i.e., returns first non-nullish value.
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
+
+/*
+
+// LOGICAL OPERATORS, CONTINUED
+// They can use any data type, return any data type, and use short-circuiting
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'hello' || 23 || null);
+
+// Returns first truthy value, if any
+
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+// Setting default return value using short-circuiting with ||
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+// && operator: short-circuiting returns first FALSY value, as at that point it's become clear that the logical result is false. Else, the last element is returned.
+console.log("---AND---");
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+
+console.log('Hello' && 23 && null && 'Jonas');
+
+// Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+};
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+
+// REST PATTERN AND PARAMETERS
+// Destructuring
+
+// Spread, because on RIGHT side of assignment operator
+  const arr = [1,2, ...[3,4]];
+
+  // Rest, because on LEFT side of assignment operator
+  const [a,b,...others] = [1,2,3,4,5];
+  console.log(a,b,others);
+
+  const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const obj1 = {sat, ...weekdays};
+
+// Functions
+const add = function(...numbers) {
+  let sum = 0;
+  for(let i =0; i<numbers.length; i++) 
+  sum += numbers[i];
+  console.log(sum);
+
+};
+
+add(2,3);
+add(5,3,7,2);
+add(8,2,5,3,2,1,4);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
+
 
 // Spread operator
 const arr = [7, 8, 9];
@@ -92,7 +178,7 @@ restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
 
-/*
+
 
 // Destructuring Objects
 const {name, openingHours, categories} = restaurant;
