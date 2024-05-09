@@ -182,6 +182,8 @@ const books = [
     }
   ];
 
+
+
   /*
 
 // Destructuring Arrays
@@ -298,9 +300,102 @@ for (let i = 0; i < books.length; i++) {
 };
 console.log(books.length);
 
-*/
 // The Nullish Coalescing Operator (??)
 // 6.1
 for (let i=0; i<books.length; i++) {
     console.log(books[i].onlineContent ?? `${books[i].title} provides no data about its online content`);
 };
+
+
+// Logical Assignments Operators
+// 7.1
+for (i = 1; i < books.length; i++) {
+    books[i].edition ||= 1;
+};
+
+console.log(books);
+
+// 7.2
+for (i = 1; i < books.length; i++) {
+    books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
+};
+
+
+// For-of Loop
+// 8.1
+let pageSum = 0;
+for (const volume of books) {
+  pageSum += volume.pages;
+};
+
+console.log(pageSum);
+
+// 8.2
+// const arr = ['a', 'b', 'c'];
+// const str = 'abc';
+
+// console.log(typeof(arr), typeof(str));
+
+// console.log(typeof(books[5].author));
+
+const allAuthors = [];
+
+for (volume of books) {
+  if (typeof(volume.author) === 'string') {
+    allAuthors.push(volume.author);
+  } else if (typeof (volume.author) === 'object') {
+    allAuthors.push(...volume.author);
+  }
+};
+
+console.log(allAuthors);
+
+// 8.3
+
+for (const [i, el] of allAuthors.entries()) {
+  console.log(`${i + 1}. ${el}`);
+};
+
+// Enhanced Object Literals
+// 9.1
+
+const bookData = [
+  ['title', 'Computer Networking: A Top-Down Approach'],
+  ['author', ['James F. Kurose', 'Keith W. Ross']],
+  ['publisher', 'Addison Wesley'],
+];
+
+const newBook = {
+  [bookData[0][0]]: bookData[0][1],
+  [bookData[1][0]]: bookData[1][1],
+  [bookData[2][0]]: bookData[2][1],
+};
+
+console.log(newBook);
+
+// 9.2
+const pages = 880;
+
+const newBook2 = {
+  title: 'The C Programming Language',
+  author: ['Brian W. Kernighan', 'Dennis M. Ritchie'],
+  pages,
+};
+
+console.log(newBook2);
+
+*/
+
+// Optional Chaining (?.)
+// 10.1
+const newBook2 = {
+  title: 'The C Programming Language',
+  author: ['Brian W. Kernighan', 'Dennis M. Ritchie'],
+};
+
+function getFirstKeyword(book) {
+  console.log(book.keywords?.[0]);
+};
+
+getFirstKeyword(books[0]);
+getFirstKeyword(newBook2);
