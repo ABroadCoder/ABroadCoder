@@ -384,7 +384,6 @@ const newBook2 = {
 
 console.log(newBook2);
 
-*/
 
 // Optional Chaining (?.)
 // 10.1
@@ -399,3 +398,26 @@ function getFirstKeyword(book) {
 
 getFirstKeyword(books[0]);
 getFirstKeyword(newBook2);
+
+*/
+
+// Looping Objects: Object Keys, Values and Entries
+// 11.1
+const entries = [];
+for (const key of Object.keys(books[0].thirdParty.goodreads)) {
+  entries.push([key]);
+}
+
+console.log(entries);
+
+// 11.2
+for(const [index, value] of Object.values(books[0].thirdParty.goodreads).entries()) {
+  entries[index].push(value);
+}
+
+// 11.3
+// console.log(Object.entries(books[0].thirdParty.goodreads));
+const entries2 = Object.entries(books[0].thirdParty.goodreads);
+
+// 11.4
+console.log(entries2);
