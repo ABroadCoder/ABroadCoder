@@ -1,5 +1,23 @@
 'use strict';
 
+const weekdays = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [`Day-${2 + 3}`]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+}
+
+console.log(openingHours);
+
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
@@ -11,39 +29,80 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  // ES6 enhanced object literal syntax
+  openingHours,
 
-  order: function(starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({starterIndex=1, mainIndex=0, time='20:00', address}){ 
+
+  orderDelivery({starterIndex=1, mainIndex=0, time='20:00', address}){ 
       console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`);
   },
 
-  orderPasta: function(ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}.`)
   },
 
-  orderPizza: function(mainIngredient, ...otherIngredients) {
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
   },
-
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
 };
+
+// Property names
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days:`;
+for (const day of properties) {
+  openStr += `${day}, `;
+};
+console.log(openStr);
+
+// Property VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+// [key, value]
+for(const [key, {open, close}] of entries) {
+  console.log(`On ${key}, we open at ${open} and close at ${close}`);
+}
+
+
+// Without optional chaining
+// if (restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+// With optional chaining
+
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+const days = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log((`On ${day}, we open at ${open}.`));
+};
+
+// Methods with optional chaining
+console.log(restaurant.order?.(0,1) ?? 'Method does not exist.');
+console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist.');
+
+// Arrays with optional chaining
+const users = [
+  {name: 'Jonas', email: 'hello@jonas.io'}
+];
+
+// console.log(users[0]?.name ?? 'User array empty.');
+
+
 
 restaurant.orderDelivery({
   time: '22:30',
@@ -62,11 +121,11 @@ restaurant.orderDelivery({
 
 restaurant.numGuests = 0;
 const guests = restaurant.numGuests || 10;
-console.log(guests);
+// console.log(guests);
 
 // Nullish: keeps going through null and undefined, NOT through 0 or ''; i.e., returns first non-nullish value.
 const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect);
+// console.log(guestCorrect);
 
 
 const rest1 = {
@@ -94,7 +153,26 @@ rest2.numGuests ??= 10;
 rest1.owner &&= '<ANONYMOUS>';
 rest2.owner &&= '<ANONYMOUS>';
 
+
+// Enhanced Object Literals
+
+
+
+
 /*
+
+// For-of Loop
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const [i, el] of menu.entries()) {
+  console.log(`{i + 1}: ${el}`);
+};
+
+console.log([...menu.entries()]);
+
 
 // LOGICAL OPERATORS, CONTINUED
 // They can use any data type, return any data type, and use short-circuiting
@@ -284,7 +362,7 @@ Suppose we get data from a web service about a certain game (below). In this cha
 TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
 
 GOOD LUCK 😀
-*/
+
 
 // Soccer Data from Website
 const game = {
@@ -382,3 +460,98 @@ team2 < team1 && console.log('Team 2 is more likely to win.');
 // Using Ternary Operator
 // console.log(team1, team2);
 // team1 < team2 ? console.log('Team 1 is more likely to win.') : console.log('Team 2 is more likely to win.');
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Coding Challenge #2
+
+Let's continue with our football betting app!
+
+1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
+2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
+3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
+      Odd of victory Bayern Munich: 1.33
+      Odd of draw: 3.25
+      Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
+
+BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
+      {
+        Gnarby: 1,
+        Hummels: 1,
+        Lewandowski: 2
+      }
+
+GOOD LUCK 😀
+*/
+
+// Soccer Data from Website
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+// 1.
+for(const [index, value] of game.scored.entries()) {
+  console.log(`Goal ${index + 1}: ${value}`);
+}
+
+// 2.
+// Calculation of average odd
+let total = 0;
+for (const [index, value] of Object.entries(game.odds)) {
+  total += value;
+}
+console.log(total);
+const averageOdd = total/(Object.entries(game.odds).length);
+console.log(averageOdd);
+
+// 3.
+for (const [key, value] of Object.entries(game.odds)) {
+  const firstPart = key === 'x' ? 'draw' : `victory ${game[key]}`;
+  console.log(`Odd of ${firstPart}: ${value}`);
+}
+
+// BONUS
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : scorers[player] = 1;
+}
+
+console.log(scorers);
