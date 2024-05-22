@@ -399,8 +399,6 @@ function getFirstKeyword(book) {
 getFirstKeyword(books[0]);
 getFirstKeyword(newBook2);
 
-*/
-
 // Looping Objects: Object Keys, Values and Entries
 // 11.1
 const entries = [];
@@ -421,3 +419,71 @@ const entries2 = Object.entries(books[0].thirdParty.goodreads);
 
 // 11.4
 console.log(entries2);
+
+
+// Sets
+// 12.1
+const allKeywords = [];
+for(let i=0; i<books.length; i++) {
+  allKeywords.push(...books[i].keywords);
+}
+
+// 12.2
+const uniqueKeywords = new Set(allKeywords);
+console.log(uniqueKeywords);
+
+// console.log(allKeywords);
+// console.log(allKeywords.length);
+// console.log(allKeywords[16]);
+
+// 12.3
+uniqueKeywords.add('coding');
+uniqueKeywords.add('science');
+// console.log(uniqueKeywords);
+
+// 12.4
+uniqueKeywords.delete('business');
+// console.log(uniqueKeywords);
+
+// 12.5
+uniqueKeywordsArr = [];
+uniqueKeywordsArr.push(...uniqueKeywords);
+console.log(uniqueKeywordsArr);
+
+// 12.6
+uniqueKeywords.clear();
+console.log(uniqueKeywords);
+
+
+// Maps: Fundamentals
+// 13.1
+const arr = [['title', 'Clean Code'], ['author', 'Robert C. Martin']];
+const bookMap = new Map(arr);
+console.log(bookMap);
+
+// 13.2
+bookMap.set('pages', 464);
+console.log(bookMap);
+
+// 13.3
+console.log(`${bookMap.get('title')} by ${bookMap.get('author')}`);
+
+// 13.4
+console.log(bookMap.size);
+
+// 13.5
+if (bookMap.has('author')) console.log('The author of the book is known');
+
+// Maps: Iteration
+// 14.1
+const firstBookMap = new Map(Object.entries(books[0]));
+// console.log(Object.entries(books[0]));
+console.log(firstBookMap);
+
+// 14.2
+for (const [key, value] of firstBookMap) {
+  if(typeof(value) === 'number') console.log(key);
+}
+
+*/
+
