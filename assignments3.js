@@ -485,5 +485,60 @@ for (const [key, value] of firstBookMap) {
   if(typeof(value) === 'number') console.log(key);
 }
 
+// Working with Strings #1
+
+// 15.1
+console.log(books[0].ISBN[6], books[0].ISBN[4], books[0].ISBN[9], books[0].ISBN[8]);
+
+// 15.2
+const quote = 'A computer once beat me at chess, but it was no match for me at kick boxing';
+console.log(quote.indexOf('chess'));
+
+// 15.3
+console.log(quote.slice(-6));
+// OR
+console.log(quote.slice(quote.lastIndexOf(' ') + 1));
+
+// 15.4
+function isContributor(authorName) {
+  console.log(authorName.includes('(Contributor)'));
+}
+
+isContributor('ABC (Contributor)');
+
 */
 
+// 16.1
+function normalizeName(originalName) {
+  const lowerName = originalName.toLowerCase();
+  const noContributorName = lowerName.replace('(Contributor)', '');
+  const trimmedName = noContributorName.trim();
+  const firstName = trimmedName.slice(0, trimmedName.indexOf(' '));
+  const lastName = trimmedName.slice(trimmedName.indexOf(' ') + 1);
+  const capFirstName = firstName[0].toUpperCase() + firstName.slice(1);
+  const capLastName = lastName[0].toUpperCase() + lastName.slice(1);
+
+  console.log(capFirstName + ' ' + capLastName);
+}
+
+// 16.2
+const newBookTitle = books[1].title.replace('Programs', 'Software');
+console.log(newBookTitle);
+
+// 16.3
+function logBookTheme(originalBookTitle) {
+  originalBookTitle = originalBookTitle.toLowerCase();
+  if (originalBookTitle.startsWith('computer')) {
+    console.log('This book is about computers')
+  };
+  
+  if (originalBookTitle.includes('algorithms') && originalBookTitle.includes('structures')) {
+    console.log('This book is about algorithms and data structures')
+  };
+  
+  if (originalBookTitle.slice(-7).includes('system') && !(originalBookTitle.includes('operating'))) {
+    console.log('This book is about some systems, but definitely not about operating systems')
+  }; 
+}
+
+logBookTheme('Structures and Platforms');
