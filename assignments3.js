@@ -506,7 +506,6 @@ function isContributor(authorName) {
 
 isContributor('ABC (Contributor)');
 
-*/
 
 // 16.1
 function normalizeName(originalName) {
@@ -542,3 +541,44 @@ function logBookTheme(originalBookTitle) {
 }
 
 logBookTheme('Structures and Platforms');
+
+*/
+
+// Working with Strings - Part 3
+// 17.1
+const bookCategories = 'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
+
+function logBookCategories(input) {
+  const splitInput = input.split(';');
+  console.log(splitInput.join('\n'));
+}
+
+logBookCategories(bookCategories);
+
+// 17.2
+function getKeywordsAsString(input) {
+  let keywords = '';
+  for (let book of input) {
+    book = [...(new Set(book.keywords))].join(';') + ';';
+    keywords = keywords + book;
+  }
+  keywords = keywords.slice(0, -1);
+  console.log(keywords);
+}
+
+getKeywordsAsString(books);
+
+// My solution differs from that in the key in that mine retains the intermediary data as strings, not using arrays or pushes.
+
+// 17.3
+const bookChapters = [['The Basics', 14], ['Sorting', 254], ['Searching', 372], ['Graphs', 526], ['Strings', 706]];
+
+function logBookChapters(input) {
+  for ([title, page] of input) {
+    const line = title.padEnd(25, '_') + ` ${page}`;
+    console.log(line);
+  }
+}
+
+logBookChapters(bookChapters);
+
