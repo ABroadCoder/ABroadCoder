@@ -1,5 +1,7 @@
 'use strict';
 
+/*
+
 const weekdays = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
   [weekdays[3]]: {
@@ -159,7 +161,7 @@ rest2.owner &&= '<ANONYMOUS>';
 
 
 
-/*
+
 
 // For-of Loop
 
@@ -342,11 +344,11 @@ console.log(i, j, k);
 const [p=1, q=1, r=1] = [8, 9];
 console.log(p, q, r);
 
-*/
+
 
 // Coding Challenge #1
 
-/* 
+
 We're building a football betting app (soccer for my American friends 😅)!
 
 Suppose we get data from a web service about a certain game (below). In this challenge we're gonna work with the data. So here are your tasks:
@@ -556,7 +558,6 @@ for (const player of game.scored) {
 
 console.log(scorers);
 
-*/
 
 //////////////////////////////////////////////////////////////////////////
 // Sets
@@ -663,7 +664,7 @@ const answer = 3;
 
 // Coding Challenge #3
 
-/* 
+
 Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
 
 1. Create an array 'events' of the different game events that happened (no duplicates)
@@ -858,11 +859,10 @@ const planesInLine = function(n) {
 
 planesInLine(7);
 
-*/
 
 // Coding Challenge #4
 
-/* 
+
 Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
 
 The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
@@ -908,3 +908,22 @@ document.querySelector('button').addEventListener('click', function () {
 });
 
 */
+
+// String Methods Practice
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+
+const getCode = str => str.slice(0,3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '🔴' : ''} ${type.replaceAll('_', ' ')} from ${getCode(from)} to ${getCode(to)} (${time.replace(':', 'h')})`.padStart('🔴 Delayed Departure from FAO to TXL (11h25)'.length);
+  console.log(output);
+}
