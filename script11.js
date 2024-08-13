@@ -442,4 +442,16 @@ return averageAge;
 
 calcAverageHumanAgeMap([5, 2, 4, 1, 15, 8, 3]);
 
+
+// Challenge #3
+
+// Rewrite the calcAverageHumanAge function from Challenge #2 using arrow functions and methods chaining.
+
+const calcAverageHumanAgeMap = ages => ages.map((age, i) => age <= 2 ? age *= 2 : age = age * 4 + 16).filter(humanAge => humanAge >= 18).reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
+  // Step 1: convert to human years
+  // Step 2: exclude all dogs less than 18 human years old
+  // Step 3: calculate average human age of all adult dogs
+  
+   
+calcAverageHumanAgeMap([5, 2, 4, 1, 15, 8, 3]);
 */
