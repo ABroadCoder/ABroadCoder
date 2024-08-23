@@ -4,7 +4,8 @@
 /////////////////////////////////////////////////
 // BANKIST APP
 
-// Data
+// ACCOUNT DATA
+
 const account1 = {
   owner: 'Jonas Schmedtmann',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
@@ -35,7 +36,8 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
-// Elements
+// RENAMING OF HTML ELEMENTS
+
 const labelWelcome = document.querySelector('.welcome');
 const labelDate = document.querySelector('.date');
 const labelBalance = document.querySelector('.balance__value');
@@ -61,6 +63,7 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+// INTERMEDIATE FUNCTIONS
 
 const displayMovements = function(movements) {
   containerMovements.innerHTML = '';
@@ -82,7 +85,7 @@ const displayMovements = function(movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-displayMovements(account1.movements);
+
 
 const createUsernames = function (accs) {
 
@@ -90,31 +93,93 @@ const createUsernames = function (accs) {
     acc.username = acc.owner.toLowerCase().split(' ').map(ele => ele[0]).join('');
   });
   
-  console.log(accs);
+  // console.log(accs);
 };
 
 createUsernames(accounts);
 
-const calcPrintBalance = function(trans) {
-  const balance = trans.reduce((acc, cur) => acc + cur, 0);
-  labelBalance.textContent = `${balance}€`;
+const calcDisplayBalance = function(acc) {
+  acc.balance = acc.movements.reduce((accum, cur) => accum + cur, 0);
+  labelBalance.textContent = `${acc.balance}€`;
 };
-calcPrintBalance(account1.movements);
 
-const calcDisplaySummary = function(movements) {
-  const incomes = movements.filter(mov => mov > 0).reduce((acc, mov) => acc + mov, 0);
+
+const calcDisplaySummary = function(acc) {
+  const incomes = acc.movements.filter(mov => mov > 0).reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}€`;
 
-  const out = movements.filter(mov => mov < 0).reduce((acc, mov) => acc + mov, 0);
+  const out = acc.movements.filter(mov => mov < 0).reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(out)}€`;
 
-  const interest = movements.filter(mov => mov > 0).map(deposit => deposit * 0.012).filter((int, i, arr) => {
-    console.log(arr);
+  const interest = acc.movements.filter(mov => mov > 0).map(deposit => deposit * acc.interestRate / 100).filter((int, i, arr) => {
+    // console.log(arr);
     return int >= 1;
   }).reduce((acc, interest) => acc + interest, 0);
   labelSumInterest.textContent = `${interest}€`;
 };
-calcDisplaySummary(account1.movements);
+
+// REFACTORIZATION: UPDATE UI
+
+const updateUI = function(acc) {
+  // Display movements
+displayMovements(acc.movements);
+// Display balance
+calcDisplayBalance(acc);
+// Display summary
+calcDisplaySummary(acc);
+};
+
+
+// Event handler
+let currentAccount;
+
+// CLICK EVENT: LOGIN
+
+btnLogin.addEventListener('click', function(e) {
+  // Prevent form from submitting
+  e.preventDefault();
+
+ currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
+//  console.log(currentAccount);
+
+ if (Number(inputLoginPin.value) === currentAccount?.pin) {
+  console.log('Correct PIN entered');
+// Display UI and Welcome Message
+labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
+containerApp.style.opacity = 100;
+
+// Clear username and pin fields
+inputLoginUsername.value = inputLoginPin.value = '';
+inputLoginPin.blur();
+inputLoginUsername.blur();
+ }
+ 
+//  Update UI to display complete data
+updateUI(currentAccount);
+
+});
+
+// CLICK EVENT: TRANSFERS
+
+btnTransfer.addEventListener('click', function(e) {
+  // Prevent form submission
+  e.preventDefault();
+
+  // Definition of intermediate variables for amount and recipient account
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(acc => acc.username === inputTransferTo.value);
+
+  // Truth chain to catch unallowed transfer conditions
+  if(amount > 0 && receiverAcc && currentAccount.balance >= amount && receiverAcc?.username !== currentAccount.username) {
+    
+    // Update movements arrays according to transfer request
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+
+    // Update UI based on new movements
+    updateUI(currentAccount);
+  };
+});
 
 
 /////////////////////////////////////////////////
@@ -123,7 +188,7 @@ calcDisplaySummary(account1.movements);
 
 
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 /*
@@ -317,7 +382,7 @@ console.log(acc1);
 const max = movements.reduce((acc, cur) => cur > acc ? cur : acc, movements[0]);
 console.log(max);
 
-*/
+
 
 // Methods Chaining
 
@@ -330,6 +395,41 @@ const totalDepositsUSD = movements.filter(mov => mov > 0).map((mov, i , arr) => 
 console.log(movements);
 console.log(totalDepositsUSD);
 
+
+
+
+// The find Method
+// Retrieve the first array element which satisfies a given condition. Loops over the array like forEach and reduce and filter, but does something different with the array as a result. Unlike filter, find only returns an element, not another array. Also, filter returns all elements satisfying the condition, while find returns only the first.
+
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);
+
+// Same thing, but with for-of loop
+
+let accountFind = undefined;
+for (const ac of accounts) {
+if (ac.owner === 'Jessica Davis') {
+  accountFind = ac;
+  break;
+}
+};
+
+console.log(accountFind);
+*/
+
+
+
+
+
+
+/////////////////////////////////////////////CHALLENGES/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Coding Challenge #1
 /*
