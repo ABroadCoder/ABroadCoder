@@ -130,7 +130,8 @@ calcDisplaySummary(acc);
 };
 
 
-// Event handler
+// EVENT HANDLERS
+
 let currentAccount;
 
 // CLICK EVENT: LOGIN
@@ -169,6 +170,9 @@ btnTransfer.addEventListener('click', function(e) {
   const amount = Number(inputTransferAmount.value);
   const receiverAcc = accounts.find(acc => acc.username === inputTransferTo.value);
 
+  // Clear transfer amount and transfer recipient fields
+  inputTransferAmount.value = inputTransferTo.value = '';
+
   // Truth chain to catch unallowed transfer conditions
   if(amount > 0 && receiverAcc && currentAccount.balance >= amount && receiverAcc?.username !== currentAccount.username) {
     
@@ -181,6 +185,49 @@ btnTransfer.addEventListener('click', function(e) {
   };
 });
 
+// REQUEST LOAN
+
+btnLoan.addEventListener('click', function(e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if(amount > 0 && currentAccount.movements.some(mov => mov >= amount / 10)
+) {
+  // Add movement
+  currentAccount.movements.push(amount);
+
+  // Update UI
+  updateUI(currentAccount);
+}
+
+  // Clear input fields
+  inputLoanAmount.value = '';
+});
+
+// CLOSE ACCOUNT
+
+btnClose.addEventListener('click', function(e) {
+  // Prevent form submission
+  e.preventDefault();
+
+  // Truth chain to check credentials
+  if(inputCloseUsername.value === currentAccount.username && Number(inputClosePin.value) === currentAccount.pin) {
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username);
+
+  // Delete account object 
+  accounts.splice(index, 1);
+
+  // Hide UI
+  containerApp.style.opacity = 0;
+  }
+
+  // Clear "close account" fields
+  inputCloseUsername.value = inputClosePin.value = '';
+
+  // Reset welcome label
+  labelWelcome.textContent = 'Log in to get started';
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -423,10 +470,26 @@ if (ac.owner === 'Jessica Davis') {
 console.log(accountFind);
 */
 
+// Some and Every
 
+console.log(movements);
+// equality check
+console.log(movements.includes(-130));
 
+// conditional check: some
+const anyDeposits = movements.some(mov => mov > 1500);
+console.log(anyDeposits);
 
+// conditional check: every
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
 
+// Separate callback
+// Useful for situations where a certain condition is reused in various methods in your code; this is an example of abstraction and contributes to DRY ("don't repeat yourself") code
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
 
 /////////////////////////////////////////////CHALLENGES/////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
