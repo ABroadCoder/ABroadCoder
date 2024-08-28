@@ -38,6 +38,7 @@ const accounts = [account1, account2, account3, account4];
 
 // RENAMING OF HTML ELEMENTS
 
+// Labels
 const labelWelcome = document.querySelector('.welcome');
 const labelDate = document.querySelector('.date');
 const labelBalance = document.querySelector('.balance__value');
@@ -46,15 +47,18 @@ const labelSumOut = document.querySelector('.summary__value--out');
 const labelSumInterest = document.querySelector('.summary__value--interest');
 const labelTimer = document.querySelector('.timer');
 
+// Containers
 const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
 
+// Buttons
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
 const btnLoan = document.querySelector('.form__btn--loan');
 const btnClose = document.querySelector('.form__btn--close');
 const btnSort = document.querySelector('.btn--sort');
 
+// Input fields
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
 const inputTransferTo = document.querySelector('.form__input--to');
@@ -65,12 +69,15 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 // INTERMEDIATE FUNCTIONS
 
-const displayMovements = function(movements) {
+// Generation of movements table
+const displayMovements = function(movements, sort = false) {
   containerMovements.innerHTML = '';
   // .textContent = 0
 
+  // Sorting logic for movements table
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
 
-  movements.forEach(function(mov, i) {
+  movs.forEach(function(mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
   
@@ -86,7 +93,7 @@ const displayMovements = function(movements) {
   });
 };
 
-
+// Creation of usernames list
 const createUsernames = function (accs) {
 
   accs.forEach(function(acc){
@@ -98,6 +105,7 @@ const createUsernames = function (accs) {
 
 createUsernames(accounts);
 
+// 
 const calcDisplayBalance = function(acc) {
   acc.balance = acc.movements.reduce((accum, cur) => accum + cur, 0);
   labelBalance.textContent = `${acc.balance}€`;
@@ -118,7 +126,7 @@ const calcDisplaySummary = function(acc) {
   labelSumInterest.textContent = `${interest}€`;
 };
 
-// REFACTORIZATION: UPDATE UI
+// REFACTORIZATION: UPDATE UI (higher-order function)
 
 const updateUI = function(acc) {
   // Display movements
@@ -140,23 +148,26 @@ btnLogin.addEventListener('click', function(e) {
   // Prevent form from submitting
   e.preventDefault();
 
+// Find and store requested account as current
  currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
 //  console.log(currentAccount);
+
+// // Defocus fields
+inputLoginPin.blur();
+inputLoginUsername.blur();
 
  if (Number(inputLoginPin.value) === currentAccount?.pin) {
   console.log('Correct PIN entered');
 // Display UI and Welcome Message
 labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
 containerApp.style.opacity = 100;
-
-// Clear username and pin fields
-inputLoginUsername.value = inputLoginPin.value = '';
-inputLoginPin.blur();
-inputLoginUsername.blur();
  }
  
 //  Update UI to display complete data
 updateUI(currentAccount);
+
+// Clear username and pin fields
+inputLoginUsername.value = inputLoginPin.value = '';
 
 });
 
@@ -173,7 +184,11 @@ btnTransfer.addEventListener('click', function(e) {
   // Clear transfer amount and transfer recipient fields
   inputTransferAmount.value = inputTransferTo.value = '';
 
-  // Truth chain to catch unallowed transfer conditions
+  // Defocus transfer amount and transfer recipient fields
+  inputTransferAmount.blur();
+  inputTransferTo.blur();
+
+  // Truth chain of allowed transfer conditions
   if(amount > 0 && receiverAcc && currentAccount.balance >= amount && receiverAcc?.username !== currentAccount.username) {
     
     // Update movements arrays according to transfer request
@@ -203,6 +218,9 @@ btnLoan.addEventListener('click', function(e) {
 
   // Clear input fields
   inputLoanAmount.value = '';
+
+  // Defocus loan amount field
+  inputLoanAmount.blur();
 });
 
 // CLOSE ACCOUNT
@@ -210,6 +228,10 @@ btnLoan.addEventListener('click', function(e) {
 btnClose.addEventListener('click', function(e) {
   // Prevent form submission
   e.preventDefault();
+
+  // Defocus input fields
+  inputCloseUsername.blur();
+  inputClosePin.blur();
 
   // Truth chain to check credentials
   if(inputCloseUsername.value === currentAccount.username && Number(inputClosePin.value) === currentAccount.pin) {
@@ -228,6 +250,16 @@ btnClose.addEventListener('click', function(e) {
   // Reset welcome label
   labelWelcome.textContent = 'Log in to get started';
 });
+
+
+// SORT
+let sorted = false;
+
+btnSort.addEventListener('click', function(e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+})
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -468,28 +500,101 @@ if (ac.owner === 'Jessica Davis') {
 };
 
 console.log(accountFind);
-*/
+
 
 // Some and Every
 
-console.log(movements);
-// equality check
-console.log(movements.includes(-130));
+// console.log(movements);
+// // equality check
+// console.log(movements.includes(-130));
 
-// conditional check: some
-const anyDeposits = movements.some(mov => mov > 1500);
-console.log(anyDeposits);
+// // conditional check: some
+// const anyDeposits = movements.some(mov => mov > 1500);
+// console.log(anyDeposits);
 
-// conditional check: every
-console.log(movements.every(mov => mov > 0));
-console.log(account4.movements.every(mov => mov > 0));
+// // conditional check: every
+// console.log(movements.every(mov => mov > 0));
+// console.log(account4.movements.every(mov => mov > 0));
 
 // Separate callback
 // Useful for situations where a certain condition is reused in various methods in your code; this is an example of abstraction and contributes to DRY ("don't repeat yourself") code
-const deposit = mov => mov > 0;
-console.log(movements.some(deposit));
-console.log(movements.every(deposit));
-console.log(movements.filter(deposit));
+// const deposit = mov => mov > 0;
+// console.log(movements.some(deposit));
+// console.log(movements.every(deposit));
+// console.log(movements.filter(deposit));
+
+// flat method
+// Removes outermost level of nesting and returns the resulting "flattened" array
+const arr = [[1,2,[3]], [4,[5],6], 7, 8];
+console.log(arr.flat());
+
+// Use a depth argument to increase levels of flattening
+console.log(arr.flat(2));
+
+// Practice with extracting all the movements
+// const accountMovements = accounts.map(acc => acc.movements);
+// const allMovements = accountMovements.flat();
+// const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(overallBalance);
+
+// and with chaining...
+const overallBalance = accounts.map(acc => acc.movements).flat().reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance);
+
+// flatMap method: combines a map and a flat method into one (better performance)
+const overallBalance2 = accounts.flatMap(acc => acc.movements).reduce((acc, mov) => acc + mov, 0);
+
+
+
+// Sorting arrays
+// sort method: *mutates original array*
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+
+// with numbers
+console.log(movements);
+console.log(movements.sort((a, b) => {
+    // for every adjacent pair of values to be sorted... 
+  // return < 0: a, b ; order unchanged ; + means 'ok'
+    // return > 0: b, a ; order reversed ; - means 'not ok'
+    // So, to create an ascending order...
+    if(a > b)
+      return 1;
+    if (b > a)
+      return -1;
+    // Naturally, reverse to create a descending order
+}));
+
+// Condensed expressions using subtraction
+// Descending order
+console.log(movements.sort((a, b) => a - b));
+// Ascending order
+console.log(movements.sort((a, b) => b - a));
+
+*/
+
+// CREATING AND FILLING ARRAYS
+
+//1. Empty new array + fill method
+const x = new Array(7);
+console.log(x);
+// console.log(x.map(() => 5));
+
+x.fill(1, 3, 4);
+console.log(x);
+
+//2. Array.from
+const y = Array.from({length: 7}, () => 1);
+console.log(y);
+
+const z = Array.from({length: 7}, (_, i) => i + 1);
+console.log(z);
+
+
+
+
+
+
 
 /////////////////////////////////////////////CHALLENGES/////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -617,4 +722,87 @@ const calcAverageHumanAgeMap = ages => ages.map((age, i) => age <= 2 ? age *= 2 
   
    
 calcAverageHumanAgeMap([5, 2, 4, 1, 15, 8, 3]);
+*/
+
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+
+// APP EXTRAS
+/*
+// Function to change background color smoothly
+const changeBackground = function() {
+  const colors = ['#f3e5f5', '#e8eaf6', '#e3f2fd', '#e0f2f1', '#f1f8e9', '#fff3e0'];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  
+  // Add transition property to body
+  document.body.style.transition = 'background-color 2s ease';
+  
+  // Change background color
+  document.body.style.backgroundColor = randomColor;
+};
+
+// Change background color every 4 seconds (2s for transition + 2s for display)
+setInterval(changeBackground, 4000);
+
+// Initial call to set transition property
+changeBackground();
+
+// Jumpscare feature
+const jumpscare = function() {
+  // Create jumpscare element
+  const jumpscareEl = document.createElement('div');
+  jumpscareEl.style.position = 'fixed';
+  jumpscareEl.style.top = '0';
+  jumpscareEl.style.left = '0';
+  jumpscareEl.style.width = '100%';
+  jumpscareEl.style.height = '100%';
+  jumpscareEl.style.backgroundColor = 'black';
+  jumpscareEl.style.display = 'flex';
+  jumpscareEl.style.justifyContent = 'center';
+  jumpscareEl.style.alignItems = 'center';
+  jumpscareEl.style.zIndex = '9999';
+  jumpscareEl.style.opacity = '0';
+  jumpscareEl.style.transition = 'opacity 0.1s ease-in-out';
+
+  // Create scary image
+  const scaryImg = document.createElement('img');
+  scaryImg.src = 'https://lh4.googleusercontent.com/proxy/Iw3QzXjOwZMaVBqCWWmbYkRXGXt7kfT6PPT8-8qdroAC6PN0GEJUHV5Ia4LkeAtf69dIZcHW953qbRuQQ1m950XvKhq3RXMHR_PLGu_IArmNNA'; // Replace with actual scary image URL
+  scaryImg.style.maxWidth = '80%';
+  scaryImg.style.maxHeight = '80%';
+
+  // Add image to jumpscare element
+  jumpscareEl.appendChild(scaryImg);
+
+  // Add jumpscare element to body
+  document.body.appendChild(jumpscareEl);
+
+  // Function to trigger jumpscare
+  const triggerJumpscare = function() {
+    jumpscareEl.style.opacity = '1';
+    
+    // Play scary sound
+    const scarySound = new Audio('http://soundbible.com/grab.php?id=1059&type=mp3'); // Replace with actual scary sound URL
+    scarySound.play();
+
+    // Hide jumpscare after 1 second
+    setTimeout(() => {
+      jumpscareEl.style.opacity = '0';
+    }, 1000);
+  };
+
+  // Trigger jumpscare at random intervals between 5 and 20 seconds
+  const scheduleNextJumpscare = () => {
+    const randomInterval = Math.floor(Math.random() * (20000 - 5000 + 1) + 5000);
+    setTimeout(() => {
+      triggerJumpscare();
+      scheduleNextJumpscare();
+    }, randomInterval);
+  };
+
+  scheduleNextJumpscare();
+};
+
+// Call jumpscare function
+jumpscare();
+
 */
