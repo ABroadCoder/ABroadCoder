@@ -1,15 +1,19 @@
 'use strict';
 
+// HTML references
 const buttonScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
-
-///////////////////////////////////////
-// Modal window
-
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+const nav = document.querySelector('.nav');
+
+///////////////////////////////////////
+// Modal window
 
 const openModal = function (e) {
   e.preventDefault();
@@ -53,7 +57,7 @@ buttonScrollTo.addEventListener('click', function () {
 //   });
 // });
 
-// "One function created, used many times" method (evidently more performant)
+// "One function created, used many times" method (evidently more performant); a.k.a. event delegation
 // 1. Add event listener to common parent element
 // 2. Determine what element originated the event
 
@@ -69,6 +73,48 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
 });
+
+// Tabbed component (Section 2: Operations)
+
+// Add handlers to buttons
+document;
+tabsContainer.addEventListener('click', function (e) {
+  // Define clicked tab HTML element reference
+  const clickedTab = e.target.closest('.operations__tab');
+
+  // Guard clause: end execution early if case of null result on click
+  if (!clickedTab) return;
+
+  // Log tabs clicked to console
+  // console.log(`TAB ${clickedTab.dataset.tab} CLICKED`);
+
+  // Activate clicked tab (and only clicked tab)
+  tabs.forEach(t => t.classList.remove('operations__tab--active')); // remove from all...
+  clickedTab.classList.add('operations__tab--active'); // then add to the one you want to activate :)
+
+  // Activate clicked tab's content area (and only clicked tab's content area)
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+  document
+    .querySelector(`.operations__content--${clickedTab.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
+
+// Menu fade animation
+const handleHover = function (e) {
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    siblings.forEach(el => {
+      if (el !== link) el.style.opacity = this;
+    });
+  }
+};
+
+// Passing an "argument" into handler
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+nav.addEventListener('mouseout', handleHover.bind(1));
 
 //////////////////////////////////////////
 //////////////////////////////////////////
@@ -251,4 +297,33 @@ document.querySelector('.nav').addEventListener(
   }
   // true
 );
+
+
+const h1 = document.querySelector('h1');
+
+// Going downward in the DOM: children
+
+console.log(h1.querySelectorAll('.highlight'));
+console.log(h1.childNodes);
+console.log(h1.children); // only for direct children
+h1.firstElementChild.color = 'white'; // set property of an element using an element-relative reference
+h1.lastElementChild.color = 'orangered'; // ""
+
+// Going upward: parents
+console.log(h1.parentNode);
+console.log(h1.parentElement); // direct parent
+
+h1.closest('.header').style.background = 'var(--gradient-secondary)'; // the analog of .querySelector for searches of parents (.querySelector searches for the nearest child, while .closest searches for the nearest parent)
+
+// Going sideways: siblings
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+
+console.log(h1.previousSibling);
+console.log(h1.nextSibling);
+
+console.log(h1.parentElement.children); // to access all siblings of a single element, move up to the parent and select all of its children
+[...h1.parentElement.children].forEach(function (el) {
+  if (el !== h1) el.style.transform = 'scale(0.5)';
+});
 */
