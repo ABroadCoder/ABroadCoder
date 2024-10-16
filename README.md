@@ -1,6 +1,6 @@
 - 🖐 Hi! I’m @ABroadCoder.
-- 👾 I’m currently learning JavaScript, HTML, and CSS.
-- 🖼 My goal is to work as a JavaScript developer and create smart, fun applications.
+- 👾 I’m currently learning JavaScript-based web development.
+- 🖼 I want to use my skills to create smart, fun applications.
 
 <!---
 ABroadCoder/ABroadCoder is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
