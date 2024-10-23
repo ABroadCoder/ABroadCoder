@@ -214,49 +214,102 @@ imgTargets.forEach(img => imgObserver.observe(img));
 
 // Slider
 
-const slides = document.querySelectorAll('.slide');
-const btnLeft = document.querySelector('.slider__btn--left');
-const btnRight = document.querySelector('.slider__btn--right');
-const maxSlide = slides.length;
+const slider = function () {
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const dotContainer = document.querySelector('.dots');
+  const maxSlide = slides.length;
 
-let curSlide = 0;
+  let curSlide = 0;
 
-// const slider = document.querySelector('.slider');
-// slider.style.transform = 'scale(0.4) translateX(-800px)';
-// slider.style.overflow = 'visible';
+  console.log(slides);
 
-const goToSlide = function (slide) {
-  slides.forEach(
-    (s, i) => (s.style.transform = `translateX(${100 * (i - curSlide)}%)`)
-  );
+  // const slider = document.querySelector('.slider');
+  // slider.style.transform = 'scale(0.4) translateX(-800px)';
+  // slider.style.overflow = 'visible';
+
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );
+    });
+  };
+
+  createDots();
+
+  console.log(dotContainer);
+
+  const activateDot = function (slide) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--active');
+  };
+
+  const goToSlide = function (slide) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+    activateDot(slide);
+  };
+
+  // Next slide
+  const nextSlide = function () {
+    if (curSlide === maxSlide - 1) {
+      curSlide = 0;
+    } else {
+      curSlide++;
+    }
+
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  // Previous slide
+  const prevSlide = function () {
+    if (curSlide === 0) {
+      curSlide = maxSlide - 1;
+    } else {
+      curSlide--;
+    }
+
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const init = function () {
+    goToSlide(0);
+    activateDot(0);
+  };
+
+  init();
+
+  btnRight.addEventListener('click', nextSlide);
+  btnLeft.addEventListener('click', prevSlide);
+
+  document.addEventListener('keydown', function (e) {
+    console.log(e);
+    if (e.key === 'ArrowLeft') prevSlide();
+    e.key === 'ArrowRight' && nextSlide();
+    // Expressions with && and || can be thought of as logic puzzles which the code solves upon execution. The evaluation of their segments continues left to right until the whole expression's truth value (true or false) is determined. For &&, just one false segment is enough to determine the value of the entire expression, since if one is false, then the && condition is false as well. Similiarly, for ||, just one true segment is enough to determine the expression's value, since if just one segment is true, so is the entire || condition. Conversely, to determine an overall true result for an && expression, all the segments must be true, and to arrive at an overall false result for an || expression, all the segments must be false. This is useful, since if we want a series of segments to execute sequentially until a false result, we can use &&, and if we want a series to execute until a true result, we can use ||. Equivalently, you can think of each && operator as a gate which allows left-to-right evaluation to continue if the condition to its left was true. The || operator could be thought of, then, as a gate which allows evaluation left to right if the condition to its left is false.
+  });
+
+  dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      activateDot(slide);
+    }
+  });
 };
 
-goToSlide(0);
-
-// Next slide
-const nextSlide = function () {
-  if (curSlide === maxSlide - 1) {
-    curSlide = 0;
-  } else {
-    curSlide++;
-  }
-
-  goToSlide(curSlide);
-};
-
-// Previous slide
-const prevSlide = function () {
-  if (curSlide === 0) {
-    curSlide = maxSlide - 1;
-  } else {
-    curSlide--;
-  }
-
-  goToSlide(curSlide);
-};
-
-btnRight.addEventListener('click', nextSlide);
-btnLeft.addEventListener('click', prevSlide);
+slider();
 //////////////////////////////////////////
 //////////////////////////////////////////
 //////////////////////////////////////////
@@ -468,3 +521,17 @@ console.log(h1.parentElement.children); // to access all siblings of a single el
   if (el !== h1) el.style.transform = 'scale(0.5)';
 });
 */
+
+document.addEventListener('DOMContentLoaded', function (e) {
+  console.log('HTML parsed and DOM tree built!', e);
+});
+
+window.addEventListener('load', function (e) {
+  console.log('Page fully loaded', e);
+});
+
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = '';
+// });
