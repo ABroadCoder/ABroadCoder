@@ -1,5 +1,6 @@
 'use strict';
 // // Constructor function
+/*
 // const Person = function (firstName, birthYear) {
 //   // Instance properties
 //   this.firstName = firstName;
@@ -192,6 +193,153 @@ mike.calcAge();
 Student.prototype.constructor = Student;
 console.log(mike.__proto__);
 
+// Inheritance with ES6 Syntax
+class PersonCl {
+  // Constructor
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  //   Methods (will be added to .prototype property)
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  //   Setting a property which already exists
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name!`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+  // Static method (because not inherited by instances; other methods are called "instance methods" because they are inherited)
+  static hey() {
+    console.log('Hey there 👋');
+    console.log(this);
+  }
+}
+
+class StudentCl extends PersonCl {
+  constructor(firstName, birthYear, course) {
+    super(firstName, birthYear); //  Always needs to happen first
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fullName}, and I study ${this.course}.`);
+  }
+
+  calcAge() {
+    console.log(
+      `I'm ${2037 - this.birthYear}, but as a student, I feel more like ${
+        2037 + 10 - this.birthYear
+      }`
+    );
+  }
+}
+
+const martha = new StudentCl('Martha Jones', 2012, 'Computer Science');
+martha.fullName = 'Martha Anderson';
+martha.introduce();
+martha.calcAge();
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(`My name is ${firstName}, and I study ${this.course}`);
+};
+const jay = Object.create(StudentProto);
+jay.init('Jay', 2010, 'Computer Science');
+jay.introduce();
+jay.calcAge();
+*/
+
+class Account {
+  // Public fields (added to instances)
+  locale = navigator.language;
+
+  // Private fields (instances)
+  #movements = [];
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+    // this._movements = []; //Protected property
+    // this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  // Public methods
+  // Public interface
+  getMovements() {
+    return this.#movements;
+  }
+
+  deposit(val) {
+    this.#movements.push(val);
+    return this;
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+    return this;
+  }
+
+  requestLoan(val) {
+    if (this.#approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved`);
+      return this;
+    }
+  }
+
+  // Private methods
+  #approveLoan(val) {
+    return true;
+  }
+}
+
+const acc1 = new Account('Jonas', 'EUR', 1111);
+
+// acc1.movements.push(250);
+// acc1.movements.push(-140);
+console.log(acc1);
+
+// Chaining
+// Requires the object to be returned within each method so that it can be operated on by successive methods
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+console.log(acc1.getMovements());
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -305,7 +453,7 @@ console.log(bmw2.speedUS);
 DATA CAR 1: 'Tesla' going at 120 km/h, with a charge of 23%
 
 GOOD LUCK 😀
-*/
+
 // 1.
 const Car = function (make, speed) {
   this.make = make;
@@ -356,3 +504,62 @@ tesla.accelerate();
 tesla.brake();
 tesla.chargeBattery(100);
 console.log(tesla);
+*/
+
+// Coding Challenge #4
+/* 
+1. Re-create challenge #3, but this time using ES6 classes: create an 'EVCl' child class of the 'CarCl' class
+2. Make the 'charge' property private;
+3. Implement the ability to chain the 'accelerate' and 'chargeBattery' methods of this class, and also update the 'brake' method in the 'CarCl' class. They experiment with chining!
+
+DATA CAR 1: 'Rivian' going at 120 km/h, with a charge of 23%
+
+GOOD LUCK 😀
+*/
+
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+    return this;
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+    return this;
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+
+class EVCl extends CarCl {
+  #charge;
+
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    console.log(`${this.make} charged to ${this.#charge}`);
+    return this;
+  }
+}
+
+const rivian = new EVCl('Rivian', 140, 85);
+console.log(rivian);
+rivian.accelerate().accelerate().accelerate().brake().chargeBattery(100);
+console.log(rivian);
