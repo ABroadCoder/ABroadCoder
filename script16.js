@@ -27,7 +27,7 @@ const renderCountry = function (data, className = '') {
             </article>
         `;
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  // countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
 
 countriesContainer.addEventListener('click', function () {
@@ -172,7 +172,7 @@ btn.addEventListener('click', function () {
     alert('Please enter a country name');
   }
 });
-*/
+
 
 const getPosition = function () {
   return new Promise(function (resolve, reject) {
@@ -180,18 +180,113 @@ const getPosition = function () {
   });
 };
 
-const whereAmI = async function (country) {
-  const {} = await getPosition();
+const whereAmI = async function () {
+  try {
+    //Geolocation
+    const pos = await getPosition();
 
-  const { latitude: lat, longitude: lng } = pos.coords;
+    const { latitude: lat, longitude: lng } = pos.coords;
 
-  return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    //Reverse geocoding
+    const resGeo = await fetch(
+      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
+    );
+    if (!resGeo.ok) throw new Error('Problem getting location data');
+    const dataGeo = await resGeo.json();
+    console.log(dataGeo);
+    //Country data
+    const res = await fetch(
+      `https://restcountries.com/v3.1/name/${dataGeo.countryCode}`
+    );
+    if (!res.ok) throw new Error('Problem getting country');
+    const data = await res.json();
+    renderCountry(data[0]);
 
-  const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
-  const data = await res.json();
-  console.log(data);
-  renderCountry(data[0]);
+    return `You are in ${dataGeo.city}, ${dataGeo.countryCode}`;
+  } catch (err) {
+    console.error(`${err} 🙅‍♂️`);
+    renderError(`💔 ${err.message}`);
+
+    // Reject promise returned from async function
+    throw err;
+  }
 };
 
-whereAmI('portugal');
-console.log('FIRST');
+// console.log('1. Will get location');
+// whereAmI()
+//   .then(city => console.log(city))
+//   .catch(err => console.error(`2: ${err.message} 😥`))
+//   .finally(() => console.log('3: Finished getting location'));
+
+(async function () {
+  try {
+    const city = await whereAmI();
+  } catch (err) {
+    err => alert(`${err.message}`);
+  }
+})();
+
+
+const getThreeCountries = async function (c1, c2, c3) {
+  try {
+    // const [data1] = await getJSON(`https://restcountries.com/v3.1/name/${c1}`);
+    // const [data2] = await getJSON(`https://restcountries.com/v3.1/name/${c2}`);
+    // const [data3] = await getJSON(`https://restcountries.com/v3.1/name/${c3}`);
+    // console.log([data1.capital, data2.capital, data3.capital]);
+    const data = await Promise.all(
+      getJSON(`https://restcountries.com/v3.1/name/${c1}`),
+      getJSON(`https://restcountries.com/v3.1/name/${c2}`),
+      getJSON(`https://restcountries.com/v3.1/name/${c3}`)
+    );
+    console.log(data.map(d => d[0].capital));
+  } catch (err) {
+    console.log(err);
+  }
+};
+getThreeCountries('portugal', 'canada', 'tanzania');
+*/
+
+//Promise.race: the first settled promise (rejected or resolved) "wins the race"
+(async function () {
+  const res = await Promise.race([
+    getJSON(`https://restcountries.com/v3.1/name/italy`),
+    getJSON(`https://restcountries.com/v3.1/name/egypt`),
+    getJSON(`https://restcountries.com/v3.1/name/mexico`),
+  ]);
+});
+
+const timeout = function (s) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error('Request took too long!'));
+    }, sec);
+  });
+};
+
+Promise.race([
+  getJSON(`https://restcountries.com/v3.1/name/tanzania`),
+  timeout(0.1),
+])
+  .then(res => console.log(res[0]))
+  .catch(err => console.error(err));
+
+// Promise.allSettled: returns an array of all settled promises
+Promise.allSettled([
+  Promise.resolve('Success'),
+  Promise.reject('Error'),
+  Promise.resolve('Success'),
+]).then(res => console.log(res));
+
+// Promise.all: to resolve, requires all promises to be resolved
+Promise.all([
+  Promise.resolve('Success'),
+  Promise.reject('Error'),
+  Promise.resolve('Success'),
+]).then(res => console.log(res));
+
+// Promise.any: to resolve, requires just one promise to be resolved (returns first resolved promise)
+Promise.any([
+  Promise.resolve('Success'),
+  Promise.reject('Error'),
+  Promise.resolve('Success'),
+]).then(res => console.log(res));
