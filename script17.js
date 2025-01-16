@@ -21,3 +21,16 @@ add('apples', 3);
 add('apples', 3);
 console.log(cart);
 
+import cloneDeep from './node_modules/lodash-es';
+
+const state = {
+  cart: [
+    { product: 'bread', quantity: 5 },
+    { product: 'bread', quantity: 5 },
+  ],
+  user: { loggedIn: true },
+};
+
+if (module.hot) {
+  module.hot.accept();
+}
