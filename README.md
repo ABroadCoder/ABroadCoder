@@ -1,6 +1,6 @@
-- 🖐 Hi! I’m @ABroadCoder.
-- 👾 I’m always learning! Currently, I'm training JavaScript-based web development.
-- 🖼 I use my skills to create smart, fun applications.
+- 🖐 Hi! I’m Andrew (@ABroadCoder).
+- 📈 I’m always adding to my portfolio! Check back to see my daily updates.
+- 🎇 I use my skills to create smart, fun applications.
 
 <!---
 ABroadCoder/ABroadCoder is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
