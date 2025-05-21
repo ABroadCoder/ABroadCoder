@@ -2,8 +2,10 @@
 - 📈 I’m always working on my GitHub! Check back to see my updates.
 - 🎇 I document my learning journey and project development here.
 
-- Play around with my prototypes:
+  Play around with my prototypes:
+ 
   https://abroadcoder.github.io/typing-game-prototype1/
+  
   https://abroadcoder.github.io/typing-game-prototype2/
 
 <!---
