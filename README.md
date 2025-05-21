@@ -1,12 +1,13 @@
-- 🖐 Hi! I’m Andrew (@ABroadCoder).
-- 📈 I’m always working on my GitHub! Check back to see my updates.
-- 🎇 I document my learning journey and project development here.
+🖐 Hi! I’m Andrew (@ABroadCoder). Thanks for stopping by! 
 
-  Play around with my prototypes:
+📘 In my repos, I document my learning journey and project development.
+
+⛳️ Play around with my prototypes here:
  
   https://abroadcoder.github.io/typing-game-prototype1/
   
   https://abroadcoder.github.io/typing-game-prototype2/
+
 
 <!---
 ABroadCoder/ABroadCoder is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
