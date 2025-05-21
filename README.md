@@ -1,5 +1,5 @@
 - 🖐 Hi! I’m Andrew (@ABroadCoder).
-- 📈 I’m always adding to my portfolio! Check back to see my daily updates.
+- 📈 I’m always adding to my portfolio! Check back to see my updates.
 - 🎇 I document my learning journey and project development here.
 
 <!---
