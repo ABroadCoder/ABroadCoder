@@ -12,6 +12,8 @@
 
   https://abroadcoder.github.io/coursework-project1/
 
+  https://abroadcoder.github.io/coursework-project2/
+
 
 <!---
 ABroadCoder/ABroadCoder is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
