@@ -4,9 +4,9 @@
 
 ⛳️ Play around with my prototypes here:
  
-  https://abroadcoder.github.io/typing-game-prototype1/
+  https://abroadcoder.github.io/typingGame-prototype1/
   
-  https://abroadcoder.github.io/typing-game-prototype2/
+  https://abroadcoder.github.io/typingGame-prototype2/
 
 
 <!---
