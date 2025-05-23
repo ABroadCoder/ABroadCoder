@@ -7,16 +7,14 @@
 
 ---
 
-```yaml
-name: Andrew
-username: ABroadCoder
-location: USA
-currently_learning: JavaScript
-goal: To become a proficient JavaScript developer and create innovative applications
-fun_fact: I enjoy turning complex problems into simple, elegant solutions!
+```json
+{
+  "name": "Andrew",
+  "skills": ["JavaScript", "HTML", "CSS", "React"],
+  "location": "USA",
+  "available": true
+}
 
-📊 GitHub Stats
-<p align="center"> <img src="https://github-readme-stats.vercel.app/api?username=ABroadCoder&show_icons=true&theme=radical" alt="GitHub Stats" /> </p>
 
 🚀 Projects
 
