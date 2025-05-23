@@ -16,18 +16,18 @@
 }
 
 
-🚀 Projects
+<h3 align="center">🚀 Personal Project Prototypes</h3> 
 
-Typing Game Prototype
-
-
-
-An interactive typing game designed to improve typing speed and accuracy.
-
-Pig Game
+<h4>Sleuth Typewriter</h4>
+<p>Single-letter typing training, gamified.</p>
 
 
 
-A fun dice game implementing game logic and DOM manipulation.
+<h4>Type the Clues!</h4>
+<p>Single-word typing training, gamified.</p>
+
+![prototype2](https://github.com/user-attachments/assets/6efaee20-443e-4107-8699-545907b8cff0)
+
+
 
 
