@@ -2,7 +2,7 @@
 <h3 align="center">Aspiring JavaScript Developer | Lifelong Learner</h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=Building+smart+%26+fun+applications;Exploring+the+world+of+JavaScript;Always+learning+something+new!" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=Building+smart+%26+fun+applications;Exploring+the+world+of+JavaScript;Always+learning+something+new!" alt="Typing SVG" />
 </p>
 
 ---
