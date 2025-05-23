@@ -32,6 +32,8 @@
 
 <p align="center">Single-letter typing training, gamified.</p>
 
+<br><br>
+
 <h3 align="center">
 <a href="https://abroadcoder.github.io/typingGame-prototype2/">🔎 Type the Clues! 🔦</a>
 </h3>
