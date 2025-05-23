@@ -17,8 +17,9 @@
 ```
 
 <h3 align="center">Personal Project Prototypes</h2> 
-
-<h4 align="center">🕵️ Sleuth Typewriter ⏳</h3>
+<p align="center">
+<a href="https://abroadcoder.github.io/typingGame-prototype1/">🕵️ Sleuth Typewriter ⏳</h3>
+</p>
 <p align="center">Single-letter typing training, gamified.</p>
 
 <p align="center">
