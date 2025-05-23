@@ -27,7 +27,7 @@
 <p align="center">Single-word typing training, gamified.</p>
 
 <div align="center">
-  ![prototype2](https://github.com/user-attachments/assets/6efaee20-443e-4107-8699-545907b8cff0)
+  ![prototype2](https://github.com/user-attachments/assets/6efaee20-443e-4107-8699-545907b8cff0);
 </div>
 
 
