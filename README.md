@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Andrew (@ABroadCoder)</h1>
-<h3 align="center">Aspiring JavaScript Developer | Lifelong Learner</h2>
+<h3 align="center">Self-taught JavaScript Developer | Lifelong Learner</h2>
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=Building+smart+%26+fun+applications;Exploring+the+world+of+JavaScript;Always+learning+something+new!" alt="Typing SVG" />
