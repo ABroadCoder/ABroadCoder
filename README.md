@@ -18,7 +18,7 @@
 
 <h2 align="center">Personal Project Prototypes</h2>
 
-<p align="center"><em>The following demos include sound 😊</em></p>
+<p align="center">* <em>The following demos include sound</em> 😊 *</p>
 
 <p align="center">
 <a href="https://abroadcoder.github.io/typingGame-prototype1/">🕵️ Sleuth Typewriter ⏳</a>
