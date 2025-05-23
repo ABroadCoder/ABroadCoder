@@ -24,18 +24,6 @@
 
 <p align="center">* <em>The following demos include sound</em> 😊 *</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
 <h3 align="center">
 <a href="https://abroadcoder.github.io/typingGame-prototype1/">🕵️ Sleuth Typewriter ⏳</a>
 </h3>
@@ -48,7 +36,7 @@
 
 <p align="center">Single-letter typing training, gamified.</p>
 
-<br><br>
+<br>
 
 <h3 align="center">
 <a href="https://abroadcoder.github.io/typingGame-prototype2/">🔎 Type the Clues! 🔦</a>
