@@ -1,21 +1,35 @@
-🖐 Hi! I’m Andrew (@ABroadCoder). Thanks for stopping by! 
+<h1 align="center">Hi 👋, I'm Andrew (@ABroadCoder)</h1>
+<h3 align="center">Aspiring JavaScript Developer | Lifelong Learner</h3>
 
-📘 In my repos, I document my learning journey and personal project development.
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=Building+smart+%26+fun+applications;Exploring+the+world+of+JavaScript;Always+learning+something+new!" alt="Typing SVG" />
+</p>
 
-⛳️ Play around with my personal project prototypes here:
- 
-  https://abroadcoder.github.io/typingGame-prototype1/
-  
-  https://abroadcoder.github.io/typingGame-prototype2/
+---
 
-📚 My coursework projects are here:
+```yaml
+name: Andrew
+username: ABroadCoder
+location: USA
+currently_learning: JavaScript
+goal: To become a proficient JavaScript developer and create innovative applications
+fun_fact: I enjoy turning complex problems into simple, elegant solutions!
 
-  https://abroadcoder.github.io/coursework-project1/
+📊 GitHub Stats
+<p align="center"> <img src="https://github-readme-stats.vercel.app/api?username=ABroadCoder&show_icons=true&theme=radical" alt="GitHub Stats" /> </p>
 
-  https://abroadcoder.github.io/coursework-project2/
+🚀 Projects
+
+Typing Game Prototype
 
 
-<!---
-ABroadCoder/ABroadCoder is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+
+An interactive typing game designed to improve typing speed and accuracy.
+
+Pig Game
+
+
+
+A fun dice game implementing game logic and DOM manipulation.
+
+
