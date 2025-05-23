@@ -16,7 +16,7 @@
 }
 ```
 
-<h2 align="center">Personal Project Prototypes</h2>
+<h2 align="center">Personal Projects</h2>
 
 <p align="center">* <em>The following demos include sound</em> 😊 *</p>
 
