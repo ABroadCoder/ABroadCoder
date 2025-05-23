@@ -24,7 +24,17 @@
 
 <p align="center">* <em>The following demos include sound</em> 😊 *</p>
 
-<br>
+
+
+
+
+
+
+
+
+
+
+
 
 <h3 align="center">
 <a href="https://abroadcoder.github.io/typingGame-prototype1/">🕵️ Sleuth Typewriter ⏳</a>
