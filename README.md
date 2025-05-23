@@ -16,7 +16,10 @@
 }
 ```
 
-<h3 align="center">Personal Project Prototypes</h2> 
+<h2 align="center">Personal Project Prototypes</h2>
+
+<p style="font-style: italic">The following demos include sound 😊</p>
+
 <p align="center">
 <a href="https://abroadcoder.github.io/typingGame-prototype1/">🕵️ Sleuth Typewriter ⏳</a>
 </p>
