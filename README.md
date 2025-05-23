@@ -26,9 +26,10 @@
 <h4 align="center">Type the Clues!</h4>
 <p align="center">Single-word typing training, gamified.</p>
 
-<div align="center">
-  ![prototype2](https://github.com/user-attachments/assets/6efaee20-443e-4107-8699-545907b8cff0);
-</div>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6efaee20-443e-4107-8699-545907b8cff0" alt="prototype2" />
+</p>
+
 
 
 
