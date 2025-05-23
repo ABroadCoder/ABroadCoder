@@ -14,7 +14,7 @@
   "location": "USA",
   "available": true
 }
-
+```
 
 <h3 align="center">🚀 Personal Project Prototypes</h3> 
 
