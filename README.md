@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Andrew (@ABroadCoder)</h1>
+<h1 align="center">Hi 👋, I'm ABroadCoder</h1>
 <h3 align="center">Self-taught JavaScript Developer | Lifelong Learner</h2>
 
 <p align="center">
