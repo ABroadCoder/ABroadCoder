@@ -23,8 +23,6 @@
 <h3 align="center">
 <a href="https://abroadcoder.github.io/typingGame-prototype1/">🕵️ Sleuth Typewriter ⏳</a>
 </h3>
-  
-<p align="center">Single-letter typing training, gamified.</p>
 
 <p align="center">
   <a href="https://abroadcoder.github.io/typingGame-prototype1/">
@@ -32,16 +30,19 @@
   </a>
 </p>
 
+<p align="center">Single-letter typing training, gamified.</p>
+
 <h3 align="center">
 <a href="https://abroadcoder.github.io/typingGame-prototype2/">🔎 Type the Clues! 🔦</a>
 </h3>
-<p align="center">Single-word typing training, gamified.</p>
 
 <p align="center">
   <a href="https://abroadcoder.github.io/typingGame-prototype2/">
   <img src="https://github.com/user-attachments/assets/6efaee20-443e-4107-8699-545907b8cff0" alt="prototype2" />
   </a>
 </p>
+
+<p align="center">Single-word typing training, gamified.</p>
 
 
 
