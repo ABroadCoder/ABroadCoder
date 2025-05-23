@@ -21,7 +21,9 @@
 <h4 align="center">🕵️ Sleuth Typewriter ⏳</h3>
 <p align="center">Single-letter typing training, gamified.</p>
 
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0e486798-b6eb-447e-8508-7a2b2b1764e5" alt="prototype2" />
+</p>
 
 <h4 align="center">🔎 Type the Clues! 🔦</h3>
 <p align="center">Single-word typing training, gamified.</p>
@@ -29,8 +31,6 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6efaee20-443e-4107-8699-545907b8cff0" alt="prototype2" />
 </p>
-
-
 
 
 
