@@ -30,7 +30,7 @@
 
 <p align="center">
   <a href="https://abroadcoder.github.io/typingGame-prototype1/">
-  <img src="https://github.com/user-attachments/assets/0e486798-b6eb-447e-8508-7a2b2b1764e5" alt="prototype2" />
+  <img src="![prototype1](https://github.com/user-attachments/assets/339f8a74-2bd7-4900-857a-e4a84240f8d8)" alt="Prototype 1 GIF image" />
   </a>
 </p>
 
@@ -44,7 +44,7 @@
 
 <p align="center">
   <a href="https://abroadcoder.github.io/typingGame-prototype2/">
-  <img src="https://github.com/user-attachments/assets/6efaee20-443e-4107-8699-545907b8cff0" alt="prototype2" />
+  <img src="https://github.com/user-attachments/assets/6efaee20-443e-4107-8699-545907b8cff0" alt="Prototype 2 GIF image" />
   </a>
 </p>
 
