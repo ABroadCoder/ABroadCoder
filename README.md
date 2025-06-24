@@ -18,7 +18,7 @@
 
 <br>
 
-<h2 align="center">Personal Projects</h2>
+<h2 align="center">Personal Projects (Try them out!)</h2>
 
 <p align="center">* <em>The following demos include sound</em> 😊 *</p>
 
