@@ -12,13 +12,13 @@
   "username": "ABroadCoder",
   "skills": ["JavaScript", "HTML", "CSS", "QA"],
   "location": "USA",
-  "status": "passsionate"
+  "descriptor": "passsionate"
 }
 ```
 
 <br>
 
-![New Note](https://github.com/user-attachments/assets/cca043d8-2e62-4427-8475-db353f2e11f4)
+<img src="https://github.com/user-attachments/assets/cca043d8-2e62-4427-8475-db353f2e11f4" alt="Image of Jira board for Sleuth Typewiter QA project">
 
 <h2 align="center">Personal Projects (Try them out!)</h2>
 
