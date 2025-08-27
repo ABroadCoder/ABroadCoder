@@ -18,7 +18,7 @@
 
 <br>
 
-<img src="https://github.com/user-attachments/assets/cca043d8-2e62-4427-8475-db353f2e11f4" alt="Image of Jira board for Sleuth Typewiter QA project">
+<img src="https://github.com/user-attachments/assets/b5908e3e-2888-484d-aede-b99a7a650baf" alt="Image of Jira board for Sleuth Typewiter QA project">
 
 <h2 align="center">Personal Projects (Try them out!)</h2>
 
