@@ -12,7 +12,7 @@
   "username": "ABroadCoder",
   "skills": ["JavaScript", "HTML", "CSS", "QA"],
   "location": "USA",
-  "available": true
+  "status": "passsionate"
 }
 ```
 
