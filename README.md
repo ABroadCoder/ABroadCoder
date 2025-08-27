@@ -10,7 +10,7 @@
 ```json
 {
   "username": "ABroadCoder",
-  "skills": ["JavaScript", "HTML", "CSS", "React"],
+  "skills": ["JavaScript", "HTML", "CSS", "QA"],
   "location": "USA",
   "available": true
 }
