@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm ABroadCoder</h1>
+<h1 align="center">Hi! I'm ABroadCoder</h1>
 <h3 align="center">Veteran QA Professional,<br><br> Self-taught Coder</h3>
 
 <p align="center">
