@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm ABroadCoder</h1>
-<h3 align="center">Veteran QA Professional,<br> Self-taught Coder</h3>
+<h3 align="center">Veteran QA Professional,<br><br> Self-taught Coder</h3>
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=Thanks+for+stopping+by!;Building+smart+%26+fun+applications...;...and+learning+every+day!" alt="Typing SVG" />
@@ -17,6 +17,8 @@
 ```
 
 <br>
+
+![New Note](https://github.com/user-attachments/assets/cca043d8-2e62-4427-8475-db353f2e11f4)
 
 <h2 align="center">Personal Projects (Try them out!)</h2>
 
