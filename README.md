@@ -58,13 +58,9 @@
 
 <p align="center">
   <a href="https://abroadcoder.github.io/wordle-clone/">
-  <img src="https://github.com/user-attachments/assets/d54da113-e27a-4351-acf5-9f5e4f4aed4f" alt="Wordle Clone GIF image" />
+  <img src="https://github.com/user-attachments/assets/abd4958c-2150-4cde-9afc-bb230d9ba49f" alt="Wordle Clone GIF image" />
   </a>
 </p>
 
 <p align="center">My version of the hit word game.</p>
-
-
-
-
 
