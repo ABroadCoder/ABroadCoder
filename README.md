@@ -12,7 +12,7 @@
   "username": "ABroadCoder",
   "skills": ["JavaScript", "HTML", "CSS", "QA"],
   "location": "USA",
-  "descriptor": "passsionate"
+  "descriptors": "passsionate, persistent"
 }
 ```
 
