@@ -52,6 +52,20 @@
 
 <p align="center">Single-word typing training, gamified.</p>
 
+<br>
+
+<h3 align="center">
+<a href="https://abroadcoder.github.io/typingGame-prototype3/">👾 Typing Terminal! 💻</a>
+</h3>
+
+<p align="center">
+  <a href="https://abroadcoder.github.io/typingGame-prototype3/">
+  <img src="https://github.com/user-attachments/assets/843fd026-9271-47b9-b06e-281f79179d15" alt="Prototype 3 GIF image" />
+  </a>
+</p>
+
+<p align="center">Single-phrase typing training, gamified.</p>
+
 <h3 align="center">
 <a href="https://abroadcoder.github.io/wordle-clone/">🔠 Wordle Clone ✅</a>
 </h3>
